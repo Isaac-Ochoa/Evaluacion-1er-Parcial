@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { actualizarUsuario, buscarUsuarioPorId, eliminarUsuario, obtenerUsuarios, register } from "../db/usuariosDB.js";
+import { actualizarUsuario, buscarUsuario, eliminarUsuario, obtenerUsuarios, register } from "../db/usuariosDB.js";
 const router=Router();
 
 router.post("/registro", async(req,res) =>{
@@ -39,8 +39,8 @@ router.get("/usuarios", async(req, res) => {
     });
 });
 
-router.get("/buscarUsuarioPorId/:id", async(req, res)=>{
-    const respuesta = await buscarUsuarioPorId(req.params.id);
+router.get("/buscarUsuario/:id", async(req, res)=>{
+    const respuesta = await buscarUsuario(req.params.id);
     res.status(respuesta.status).json({
         mensaje: respuesta.mensajesUsuario,
         usuario: respuesta.datos
