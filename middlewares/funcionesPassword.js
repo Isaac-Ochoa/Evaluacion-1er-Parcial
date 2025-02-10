@@ -1,7 +1,7 @@
 
 import crypto from "crypto";
 
-export function encriptarPassword(password) {
+export function encriptarPassword(password) { 
     const salt = crypto.randomBytes(32).toString("hex");
     const hash = crypto.scryptSync(password, salt, 10, 64, "sha512").toString("hex");
     return {
