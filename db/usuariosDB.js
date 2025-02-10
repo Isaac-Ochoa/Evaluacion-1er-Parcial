@@ -40,7 +40,7 @@ export const obtenerUsuarios = async () => {
     }
 }
 
-export const buscarUsuarioPorId = async (id) => {
+export const buscarUsuario = async (id) => {
     try {
         const usuarioEncontrado = await User.findById(id);
         if(!usuarioEncontrado) {
@@ -52,7 +52,7 @@ export const buscarUsuarioPorId = async (id) => {
             datos: usuarioEncontrado
         };
     } catch(error) {
-        return mensajes(400, "Error al buscar el usuario", error);
+        return mensajes(400, "Error al buscar", error);
     }
 }
 
@@ -64,7 +64,7 @@ export const eliminarUsuario = async (id) => {
         }
         return mensajes(200, "Usuario borrado correctamente");
     } catch(error) {
-        return mensajes(400, "Error al eliminar el usuario", error);
+        return mensajes(400, "Error al eliminar", error);
     }
     
 }
@@ -92,6 +92,6 @@ export const actualizarUsuario = async (id, { username, email, password }) => {
 
         return mensajes(200, "Usuario actualizado");
     } catch (error) {
-        return mensajes(400, "Error al actualizar el usuario", error);
+        return mensajes(400, "Error al actualizar", error);
     }
 }
