@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import 'dotenv/config';
 import { mensajes } from "./mensajes.js";
-export function crearCookie(dato) {
+export function crearCookie(dato) { //aqui se creo un token
     return new Promise((resolve, reject) => {
        jwt.sign(
         dato,
